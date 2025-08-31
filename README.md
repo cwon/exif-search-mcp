@@ -1,4 +1,4 @@
-# exif_mcp (Node MCP Server)
+# exif-search-mcp (Node MCP Server)
 
 A Model Context Protocol (MCP) server that filters photos by EXIF and copies matched files into a dated, prompt-named folder.
 
