@@ -61,18 +61,42 @@ cd node
 npm start -- --base-dir "/path/to/photos"
 ```
 
+If you omit `--base-dir` (and do not set `PHOTO_MCP_BASE_DIR`), the server uses `~/Pictures` by default:
+
+```bash
+# uses ~/Pictures by default
+npm run dev
+
+# compiled
+npm start
+```
+
+Quick examples with ~ expansion:
+
+```bash
+# tsx dev with tilde
+npm run dev -- --base-dir ~/Pictures
+
+# or via env var (also expands ~)
+PHOTO_MCP_BASE_DIR=~/Pictures npm run dev
+
+# override output root with tilde
+npm run dev -- --base-dir ~/Pictures --output-root ~/Desktop
+```
+
 Notes:
 
-- If not provided, `base_dir` defaults to `~/Pictures`. You can override with `PHOTO_MCP_BASE_DIR` or pass `--base-dir`.
+- If not provided, `base_dir` defaults to `~/Pictures`. You can override with `PHOTO_MCP_BASE_DIR` or pass `--base-dir`. If you omit `--base-dir` and do not set the env var, `~/Pictures` will be used.
 - Output root defaults to Desktop if not provided; otherwise, it falls back to `base_dir`.
+- The server expands `~` in `base_dir`, `output_root`, and `PHOTO_MCP_BASE_DIR` (e.g., `~/Pictures`).
 
 ## Tool: filter_and_copy
 
 Input schema (JSON keys in snake_case):
 
 - `original_prompt` (string, required)
-- `base_dir` (string, optional; defaults to `~/Pictures` or `PHOTO_MCP_BASE_DIR` if set)
-- `output_root` (string, optional; default Desktop or `base_dir`)
+- `base_dir` (string, optional; defaults to `~/Pictures` or `PHOTO_MCP_BASE_DIR` if set; `~` supported)
+- `output_root` (string, optional; default Desktop or `base_dir`; `~` supported)
 - `copy_mode` ("copy") optional; copy only
 - `date_range` { `from`: string, `to`: string } with `YYYY-MM-DD`
 - `time_of_day` { `from`: string, `to`: string } with `HH:MM`
