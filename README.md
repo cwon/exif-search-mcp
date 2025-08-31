@@ -178,8 +178,6 @@ Claude Desktop starts MCP servers as external processes via JSON configuration. 
       "args": [
         "node",
         "/Users/exif_mcp/dist/cli.js",
-        "--base-dir",
-        "/Volumes/Untitled/DCIM/100_FUJI"
       ],
       "env": {
         "PATH": "/Users/you/.nvm/versions/node/v22.18.0/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
@@ -219,8 +217,6 @@ Why `/usr/bin/env`? GUI apps often don’t inherit your login-shell PATH. This p
       "command": "node",
       "args": [
         "C:\\Users\\you\\exif_mcp\\dist\\cli.js",
-        "--base-dir",
-        "D:\\DCIM\\100_FUJI"
       ],
       "env": {
         "PATH": "C:\\Program Files\\nodejs;C:\\Windows\\System32;C:\\Windows"
